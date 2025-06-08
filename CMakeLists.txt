@@ -17,8 +17,19 @@ target_link_libraries(coffee_machine Automata)
 # Тесты
 enable_testing()
 find_package(GTest REQUIRED)
-add_executable(automata_tests
+
+# Тестовый исполняемый файл
+add_executable(automata_test
     test/tests.cpp
 )
-target_link_libraries(automata_tests Automata GTest::GTest GTest::Main)
-add_test(NAME automata_tests COMMAND automata_tests)
+target_link_libraries(automata_test 
+    Automata 
+    GTest::GTest 
+    GTest::Main
+)
+
+# Указываем правильное имя для тестов
+add_test(
+    NAME automata_test
+    COMMAND ${CMAKE_CURRENT_BINARY_DIR}/automata_test
+)
