@@ -27,6 +27,8 @@ TEST(AutomataTest, ReturnsCorrectMenu) {
     ASSERT_EQ(menu.size(), 4);
     EXPECT_EQ(menu[0], "Чай");
     EXPECT_EQ(menu[1], "Кофе");
+    EXPECT_EQ(menu[2], "Капучино");
+    EXPECT_EQ(menu[3], "Молоко");
 }
 
 TEST(AutomataTest, ChecksBalanceCorrectly) {
@@ -42,6 +44,14 @@ TEST(AutomataTest, CancelsOperation) {
     a.on();
     a.coin(100);
     a.cancel();
+    EXPECT_EQ(a.getState(), WAIT);
+}
+
+TEST(AutomataTest, CooksDrink) {
+    Automata a;
+    a.on();
+    a.coin(100);
+    a.choice(1); // Выбираем кофе
     EXPECT_EQ(a.getState(), WAIT);
 }
 
