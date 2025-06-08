@@ -12,6 +12,16 @@ add_library(Automata STATIC
 add_executable(coffee_machine
     src/main.cpp
 )
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
+)
+FetchContent_MakeAvailable(googletest)
+enable_testing()
+include(GoogleTest)
 target_link_libraries(coffee_machine Automata)
 
 add_executable(mod-lab03-coffee.test test/tests.cpp)
