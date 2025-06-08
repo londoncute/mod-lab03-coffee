@@ -1,32 +1,38 @@
-#pragma once
-#include <vector>
+// Copyright 2025 Olenev Dmitri
+
+#ifndef AUTOMATA_H_
+#define AUTOMATA_H_
+
 #include <string>
+#include <vector>
 
 enum STATES {
-    OFF,        // Автомат выключен
-    WAIT,       // Ожидание внесения денег
-    ACCEPT,     // Прием денег
-    CHECK,      // Проверка суммы
-    COOK        // Приготовление напитка
+  OFF,        // Автомат выключен
+  WAIT,       // Ожидание внесения денег
+  ACCEPT,     // Прием денег
+  CHECK,      // Проверка суммы
+  COOK        // Приготовление напитка
 };
 
 class Automata {
-private:
-    int cash;                   // Текущая сумма
-    std::vector<std::string> menu;  // Меню напитков
-    std::vector<int> prices;    // Цены напитков
-    STATES state;               // Текущее состояние
+ private:
+  int cash;                   // Текущая сумма
+  std::vector<std::string> menu;  // Меню напитков
+  std::vector<int> prices;    // Цены напитков
+  STATES state;               // Текущее состояние
 
-public:
-    Automata();                 // Конструктор
-    void on();                  // Включение автомата
-    void off();                 // Выключение автомата
-    void coin(int amount);      // Внесение денег
-    std::vector<std::string> getMenu(); // Получение меню
-    STATES getState();          // Получение текущего состояния
-    void choice(int drink);     // Выбор напитка
-    bool check(int drink);      // Проверка суммы
-    void cancel();              // Отмена операции
-    void cook(int drink);       // Приготовление напитка
-    void finish();              // Завершение обслуживания
+ public:
+  Automata();
+  void on();
+  void off();
+  void coin(int amount);
+  std::vector<std::string> getMenu();
+  STATES getState();
+  void choice(int drink);
+  bool check(int drink);
+  void cancel();
+  void cook(int drink);
+  void finish();
 };
+
+#endif  // AUTOMATA_H_
