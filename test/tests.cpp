@@ -1,9 +1,11 @@
+// Copyright 2025 Olenev Dmitri
+
 #include <gtest/gtest.h>
 #include "../include/Automata.h"
 
 TEST(AutomataTest, InitialState) {
-    Automata a;
-    EXPECT_EQ(a.getState(), OFF);
+  Automata a;
+  EXPECT_EQ(a.getState(), OFF);
 }
 
 TEST(AutomataTest, TurnOn) {
@@ -19,7 +21,6 @@ TEST(AutomataTest, AddCoin) {
     EXPECT_EQ(a.getState(), ACCEPT);
 }
 
-// ... (добавьте остальные тесты, минимум 10)
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
