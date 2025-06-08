@@ -7,29 +7,29 @@
 #include <vector>
 
 enum STATES {
-  OFF,        // Автомат выключен
-  WAIT,       // Ожидание внесения денег
-  ACCEPT,     // Прием денег
-  CHECK,      // Проверка суммы
-  COOK        // Приготовление напитка
+  OFF,
+  WAIT,
+  ACCEPT,
+  CHECK,
+  COOK
 };
 
 class Automata {
  private:
-  int cash;                   // Текущая сумма
-  std::vector<std::string> menu;  // Меню напитков
-  std::vector<int> prices;    // Цены напитков
-  STATES state;               // Текущее состояние
+  int cash;
+  std::vector<std::string> menu;
+  std::vector<int> prices;
+  STATES state;
 
  public:
   Automata();
   void on();
   void off();
   void coin(int amount);
-  std::vector<std::string> getMenu();
-  STATES getState();
+  const std::vector<std::string>& getMenu() const;
+  STATES getState() const;
   void choice(int drink);
-  bool check(int drink);
+  bool check(int drink) const;
   void cancel();
   void cook(int drink);
   void finish();
