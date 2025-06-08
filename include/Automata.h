@@ -1,7 +1,7 @@
 // Copyright 2025 Olenev Dmitri
 
-#ifndef AUTOMATA_H_
-#define AUTOMATA_H_
+#ifndef INCLUDE_AUTOMATA_H_
+#define INCLUDE_AUTOMATA_H_
 
 #include <string>
 #include <vector>
@@ -35,4 +35,4 @@ class Automata {
   void finish();
 };
 
-#endif  // AUTOMATA_H_
+#endif  // INCLUDE_AUTOMATA_H_
