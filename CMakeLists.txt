@@ -3,16 +3,20 @@ project(mod-lab03-coffee)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Основной проект
-add_executable(coffee_machine
+# Главная библиотека
+add_library(Automata STATIC
     src/Automata.cpp
+)
+
+# Основной исполняемый файл
+add_executable(coffee_machine
     src/main.cpp
 )
+target_link_libraries(coffee_machine Automata)
 
 # Тесты
 find_package(GTest REQUIRED)
 add_executable(tests
     test/tests.cpp
-    src/Automata.cpp
 )
-target_link_libraries(tests GTest::GTest GTest::Main)
+target_link_libraries(tests Automata GTest::GTest GTest::Main)
