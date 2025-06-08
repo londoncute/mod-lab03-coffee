@@ -2,6 +2,8 @@
 
 #include "../include/Automata.h"
 #include <iostream>
+#include <string>
+#include <vector>
 
 Automata::Automata() : cash(0), state(OFF) {
   menu = {"Чай", "Кофе", "Капучино", "Молоко"};
