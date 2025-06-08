@@ -1,4 +1,5 @@
 // Copyright 2025 Olenev Dmitri
+
 #include <iostream>
 #include "../include/Automata.h"
 
